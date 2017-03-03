@@ -2,7 +2,9 @@ DROP PROCEDURE  "CBASTO"."sql.pr.salesReport";
 
 CREATE PROCEDURE  "CBASTO"."sql.pr.salesReport"(
             OUT salesReport  "CBASTO"."sql.tt.sales" )
-	     READS SQL DATA AS
+            LANGUAGE SQLSCRIPT 
+            SQL SECURITY INVOKER 
+            AS
 /*********BEGIN PROCEDURE SCRIPT ************/
 BEGIN
 
