@@ -1,0 +1,23 @@
+DROP table "CBASTO"."ft.t.fuzzySearchTextContent" CASCADE; 
+create column table "CBASTO"."ft.t.fuzzySearchTextContent" (content text);
+
+INSERT INTO "CBASTO"."ft.t.fuzzySearchTextContent" VALUES('Manchester');
+INSERT INTO "CBASTO"."ft.t.fuzzySearchTextContent" VALUES('Manchestar');
+INSERT INTO "CBASTO"."ft.t.fuzzySearchTextContent" VALUES('Menchester');
+INSERT INTO "CBASTO"."ft.t.fuzzySearchTextContent" VALUES('Menchestare');
+
+SELECT SCORE(), CONTENT FROM "CBASTO"."ft.t.fuzzySearchTextContent" WHERE CONTAINS(CONTENT, 'Manchester');
+
+SELECT SCORE(), CONTENT FROM "CBASTO"."ft.t.fuzzySearchTextContent" WHERE CONTAINS(CONTENT, 'Manchester',Fuzzy(0.5)) order by 1 desc;
+
+SELECT SCORE(), CONTENT FROM "CBASTO"."ft.t.fuzzySearchTextContent" WHERE CONTAINS(CONTENT, 'Manchester',Fuzzy(0.9)) order by 1 desc;
+
+INSERT INTO "CBASTO"."ft.t.fuzzySearchTextContent" VALUES('Manchester United');
+select * from "CBASTO"."ft.t.fuzzySearchTextContent";
+
+SELECT SCORE(), CONTENT FROM "CBASTO"."ft.t.fuzzySearchTextContent" WHERE CONTAINS(CONTENT, 'Manchester',Fuzzy(0.1)) order by 1 desc;
+
+INSERT INTO "CBASTO"."ft.t.fuzzySearchTextContent" VALUES('ManchesterUnited');
+select * from "CBASTO"."ft.t.fuzzySearchTextContent";
+
+SELECT SCORE(), CONTENT FROM "CBASTO"."ft.t.fuzzySearchTextContent" WHERE CONTAINS(CONTENT, 'Manchester',Fuzzy(0.1)) order by 1 desc;

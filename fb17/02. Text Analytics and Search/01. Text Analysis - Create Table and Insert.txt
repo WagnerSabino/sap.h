@@ -1,0 +1,10 @@
+DROP TABLE "CBASTO"."ta.tb.sample1";
+
+CREATE COLUMN TABLE "CBASTO"."ta.tb.sample1"
+(
+ID INTEGER PRIMARY KEY, 
+STRING nvarchar(200)
+)
+;
+
+INSERT INTO "CBASTO"."ta.tb.sample1" VALUES (1, 'Carlos Basto gosta de trabalhar com análise de textual');

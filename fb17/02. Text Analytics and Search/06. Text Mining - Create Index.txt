@@ -1,0 +1,12 @@
+
+DROP FULLTEXT INDEX "CBASTO"."tm.tb.awards";
+
+CREATE FULLTEXT INDEX tmidxfulltext
+ON "CBASTO"."tm.tb.awards" (AWARD_ABSTRACT)
+FAST PREPROCESS OFF
+SEARCH ONLY OFF
+TEXT ANALYSIS ON
+TEXT MINING ON;
+
+-- merge new records
+MERGE DELTA OF "CBASTO"."tm.tb.awards";		
