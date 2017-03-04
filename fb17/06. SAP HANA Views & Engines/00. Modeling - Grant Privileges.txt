@@ -1,1 +1,0 @@
-grant select, execute on schema "CBASTO" to _SYS_REPO with grant option;
